@@ -1,0 +1,2 @@
+fuzzywuzzy>=0.18
+python-Levenshtein>=0.12   # acelerador opcional de fuzzywuzzy

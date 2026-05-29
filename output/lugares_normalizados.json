@@ -1,0 +1,1097 @@
+{
+  "timestamp": "2026-05-26T00:17:43.069671",
+  "stats": {
+    "leidos": 89,
+    "unicos": 60,
+    "duplicados": 29,
+    "errores": 0
+  },
+  "colecciones": {
+    "lugares": [
+      {
+        "id": "lugar_0001",
+        "nombre": "Googleplex"
+      },
+      {
+        "id": "lugar_0002",
+        "nombre": "Apple Park"
+      },
+      {
+        "id": "lugar_0003",
+        "nombre": "The White House"
+      },
+      {
+        "id": "lugar_0004",
+        "nombre": "10 Downing Street"
+      },
+      {
+        "id": "lugar_0005",
+        "nombre": "Eiffel Tower"
+      },
+      {
+        "id": "lugar_0006",
+        "nombre": "Apple Park"
+      },
+      {
+        "id": "lugar_0007",
+        "nombre": "Buckingham Palace"
+      },
+      {
+        "id": "lugar_0008",
+        "nombre": "Statue of Liberty"
+      },
+      {
+        "id": "lugar_0009",
+        "nombre": "Vatican City"
+      },
+      {
+        "id": "lugar_0010",
+        "nombre": "Shibuya Crossing"
+      },
+      {
+        "id": "lugar_0011",
+        "nombre": "221B Baker Street"
+      },
+      {
+        "id": "lugar_0012",
+        "nombre": "Great Wall of China"
+      },
+      {
+        "id": "lugar_0013",
+        "nombre": "Sydney Opera House"
+      },
+      {
+        "id": "lugar_0014",
+        "nombre": "CN Tower"
+      },
+      {
+        "id": "lugar_0015",
+        "nombre": "Burj Khalifa"
+      },
+      {
+        "id": "lugar_0016",
+        "nombre": "Christ the Redeemer"
+      },
+      {
+        "id": "lugar_0017",
+        "nombre": "Colosseum"
+      },
+      {
+        "id": "lugar_0018",
+        "nombre": "Taj Mahal"
+      },
+      {
+        "id": "lugar_0019",
+        "nombre": "Grand Canyon National Park"
+      },
+      {
+        "id": "lugar_0020",
+        "nombre": "Leaning Tower of Pisa"
+      },
+      {
+        "id": "lugar_0021",
+        "nombre": "Acropolis of Athens"
+      },
+      {
+        "id": "lugar_0022",
+        "nombre": "Machu Picchu"
+      },
+      {
+        "id": "lugar_0023",
+        "nombre": "Hollywood Walk of Fame"
+      },
+      {
+        "id": "lugar_0024",
+        "nombre": "Niagara Falls"
+      },
+      {
+        "id": "lugar_0025",
+        "nombre": "Mount Everest"
+      },
+      {
+        "id": "lugar_0026",
+        "nombre": "Petra"
+      },
+      {
+        "id": "lugar_0027",
+        "nombre": "Golden Gate Bridge"
+      },
+      {
+        "id": "lugar_0028",
+        "nombre": "Times Square"
+      },
+      {
+        "id": "lugar_0029",
+        "nombre": "Amazon Rainforest"
+      },
+      {
+        "id": "lugar_0030",
+        "nombre": "Mount Rushmore"
+      },
+      {
+        "id": "lugar_0031",
+        "nombre": "Red Square"
+      },
+      {
+        "id": "lugar_0032",
+        "nombre": "Edinburgh Castle"
+      },
+      {
+        "id": "lugar_0033",
+        "nombre": "Sydney Harbour Bridge"
+      },
+      {
+        "id": "lugar_0034",
+        "nombre": "Big Ben"
+      },
+      {
+        "id": "lugar_0035",
+        "nombre": "Pyramids of Giza"
+      },
+      {
+        "id": "lugar_0036",
+        "nombre": "Yellowstone National Park"
+      },
+      {
+        "id": "lugar_0037",
+        "nombre": "Hollywood Sign"
+      },
+      {
+        "id": "lugar_0038",
+        "nombre": "Louvre Museum"
+      },
+      {
+        "id": "lugar_0039",
+        "nombre": "Mount Fuji"
+      },
+      {
+        "id": "lugar_0040",
+        "nombre": "Kremlin"
+      },
+      {
+        "id": "lugar_0041",
+        "nombre": "Buckingham Palace Gardens"
+      },
+      {
+        "id": "lugar_0042",
+        "nombre": "Vatican Museums"
+      },
+      {
+        "id": "lugar_0043",
+        "nombre": "Golden Gate Park"
+      },
+      {
+        "id": "lugar_0044",
+        "nombre": "Brandenburg Gate"
+      },
+      {
+        "id": "lugar_0045",
+        "nombre": "Mount Kilimanjaro"
+      },
+      {
+        "id": "lugar_0046",
+        "nombre": "The Louvre Pyramid"
+      },
+      {
+        "id": "lugar_0047",
+        "nombre": "Lake Titicaca"
+      },
+      {
+        "id": "lugar_0048",
+        "nombre": "Stonehenge"
+      },
+      {
+        "id": "lugar_0049",
+        "nombre": "Chichen Itza"
+      },
+      {
+        "id": "lugar_0050",
+        "nombre": "Easter Island"
+      },
+      {
+        "id": "lugar_0051",
+        "nombre": "The Great Barrier Reef"
+      },
+      {
+        "id": "lugar_0052",
+        "nombre": "Yosemite National Park"
+      },
+      {
+        "id": "lugar_0053",
+        "nombre": "Grand Canyon"
+      },
+      {
+        "id": "lugar_0054",
+        "nombre": "Mount Vesuvius"
+      },
+      {
+        "id": "lugar_0055",
+        "nombre": "Alcatraz Island"
+      },
+      {
+        "id": "lugar_0056",
+        "nombre": "Neuschwanstein Castle"
+      },
+      {
+        "id": "lugar_0057",
+        "nombre": "Angkor Wat"
+      },
+      {
+        "id": "lugar_0058",
+        "nombre": "The Great Wall of China"
+      },
+      {
+        "id": "lugar_0059",
+        "nombre": "Grand Canyon"
+      },
+      {
+        "id": "lugar_0060",
+        "nombre": "Great Barrier Reef"
+      }
+    ],
+    "georeferencias": [
+      {
+        "lugar_id": "lugar_0001",
+        "nombre": "Googleplex",
+        "latitud": 37.422,
+        "longitud": -122.084
+      },
+      {
+        "lugar_id": "lugar_0002",
+        "nombre": "Apple Park",
+        "latitud": 37.3328,
+        "longitud": -122.0059
+      },
+      {
+        "lugar_id": "lugar_0003",
+        "nombre": "The White House",
+        "latitud": 38.8977,
+        "longitud": -77.0365
+      },
+      {
+        "lugar_id": "lugar_0004",
+        "nombre": "10 Downing Street",
+        "latitud": 51.5034,
+        "longitud": -0.1276
+      },
+      {
+        "lugar_id": "lugar_0005",
+        "nombre": "Eiffel Tower",
+        "latitud": 48.8584,
+        "longitud": 2.2945
+      },
+      {
+        "lugar_id": "lugar_0006",
+        "nombre": "Apple Park",
+        "latitud": 37.3317,
+        "longitud": -122.0307
+      },
+      {
+        "lugar_id": "lugar_0007",
+        "nombre": "Buckingham Palace",
+        "latitud": 51.5014,
+        "longitud": -0.1419
+      },
+      {
+        "lugar_id": "lugar_0008",
+        "nombre": "Statue of Liberty",
+        "latitud": 40.6892,
+        "longitud": -74.0445
+      },
+      {
+        "lugar_id": "lugar_0009",
+        "nombre": "Vatican City",
+        "latitud": 41.9029,
+        "longitud": 12.4534
+      },
+      {
+        "lugar_id": "lugar_0010",
+        "nombre": "Shibuya Crossing",
+        "latitud": 35.6591,
+        "longitud": 139.7005
+      },
+      {
+        "lugar_id": "lugar_0011",
+        "nombre": "221B Baker Street",
+        "latitud": 51.5238,
+        "longitud": -0.1588
+      },
+      {
+        "lugar_id": "lugar_0012",
+        "nombre": "Great Wall of China",
+        "latitud": 40.4319,
+        "longitud": 116.5704
+      },
+      {
+        "lugar_id": "lugar_0013",
+        "nombre": "Sydney Opera House",
+        "latitud": -33.8568,
+        "longitud": 151.2153
+      },
+      {
+        "lugar_id": "lugar_0014",
+        "nombre": "CN Tower",
+        "latitud": 43.6426,
+        "longitud": -79.3871
+      },
+      {
+        "lugar_id": "lugar_0015",
+        "nombre": "Burj Khalifa",
+        "latitud": 25.1972,
+        "longitud": 55.2744
+      },
+      {
+        "lugar_id": "lugar_0016",
+        "nombre": "Christ the Redeemer",
+        "latitud": -22.9519,
+        "longitud": -43.2106
+      },
+      {
+        "lugar_id": "lugar_0017",
+        "nombre": "Colosseum",
+        "latitud": 41.8902,
+        "longitud": 12.4922
+      },
+      {
+        "lugar_id": "lugar_0018",
+        "nombre": "Taj Mahal",
+        "latitud": 27.1751,
+        "longitud": 78.0421
+      },
+      {
+        "lugar_id": "lugar_0019",
+        "nombre": "Grand Canyon National Park",
+        "latitud": 36.107,
+        "longitud": -112.113
+      },
+      {
+        "lugar_id": "lugar_0020",
+        "nombre": "Leaning Tower of Pisa",
+        "latitud": 43.7229,
+        "longitud": 10.3966
+      },
+      {
+        "lugar_id": "lugar_0021",
+        "nombre": "Acropolis of Athens",
+        "latitud": 37.9715,
+        "longitud": 23.7266
+      },
+      {
+        "lugar_id": "lugar_0022",
+        "nombre": "Machu Picchu",
+        "latitud": -13.1631,
+        "longitud": -72.545
+      },
+      {
+        "lugar_id": "lugar_0023",
+        "nombre": "Hollywood Walk of Fame",
+        "latitud": 34.1016,
+        "longitud": -118.3414
+      },
+      {
+        "lugar_id": "lugar_0024",
+        "nombre": "Niagara Falls",
+        "latitud": 43.0812,
+        "longitud": -79.0663
+      },
+      {
+        "lugar_id": "lugar_0025",
+        "nombre": "Mount Everest",
+        "latitud": 27.9881,
+        "longitud": 86.925
+      },
+      {
+        "lugar_id": "lugar_0026",
+        "nombre": "Petra",
+        "latitud": 30.3285,
+        "longitud": 35.4444
+      },
+      {
+        "lugar_id": "lugar_0027",
+        "nombre": "Golden Gate Bridge",
+        "latitud": 37.8199,
+        "longitud": -122.4783
+      },
+      {
+        "lugar_id": "lugar_0028",
+        "nombre": "Times Square",
+        "latitud": 40.758,
+        "longitud": -73.9855
+      },
+      {
+        "lugar_id": "lugar_0029",
+        "nombre": "Amazon Rainforest",
+        "latitud": -3.4653,
+        "longitud": -62.2159
+      },
+      {
+        "lugar_id": "lugar_0030",
+        "nombre": "Mount Rushmore",
+        "latitud": 43.8791,
+        "longitud": -103.4591
+      },
+      {
+        "lugar_id": "lugar_0031",
+        "nombre": "Red Square",
+        "latitud": 55.7539,
+        "longitud": 37.6208
+      },
+      {
+        "lugar_id": "lugar_0032",
+        "nombre": "Edinburgh Castle",
+        "latitud": 55.9486,
+        "longitud": -3.1999
+      },
+      {
+        "lugar_id": "lugar_0033",
+        "nombre": "Sydney Harbour Bridge",
+        "latitud": -33.8523,
+        "longitud": 151.2108
+      },
+      {
+        "lugar_id": "lugar_0034",
+        "nombre": "Big Ben",
+        "latitud": 51.5007,
+        "longitud": -0.1246
+      },
+      {
+        "lugar_id": "lugar_0035",
+        "nombre": "Pyramids of Giza",
+        "latitud": 29.9792,
+        "longitud": 31.1342
+      },
+      {
+        "lugar_id": "lugar_0036",
+        "nombre": "Yellowstone National Park",
+        "latitud": 44.4279,
+        "longitud": -110.5885
+      },
+      {
+        "lugar_id": "lugar_0037",
+        "nombre": "Hollywood Sign",
+        "latitud": 34.1341,
+        "longitud": -118.3215
+      },
+      {
+        "lugar_id": "lugar_0038",
+        "nombre": "Louvre Museum",
+        "latitud": 48.8606,
+        "longitud": 2.3376
+      },
+      {
+        "lugar_id": "lugar_0039",
+        "nombre": "Mount Fuji",
+        "latitud": 35.3606,
+        "longitud": 138.7274
+      },
+      {
+        "lugar_id": "lugar_0040",
+        "nombre": "Kremlin",
+        "latitud": 55.7517,
+        "longitud": 37.6178
+      },
+      {
+        "lugar_id": "lugar_0041",
+        "nombre": "Buckingham Palace Gardens",
+        "latitud": 51.5014,
+        "longitud": -0.1419
+      },
+      {
+        "lugar_id": "lugar_0042",
+        "nombre": "Vatican Museums",
+        "latitud": 41.9062,
+        "longitud": 12.4544
+      },
+      {
+        "lugar_id": "lugar_0043",
+        "nombre": "Golden Gate Park",
+        "latitud": 37.7694,
+        "longitud": -122.4862
+      },
+      {
+        "lugar_id": "lugar_0044",
+        "nombre": "Brandenburg Gate",
+        "latitud": 52.5163,
+        "longitud": 13.3777
+      },
+      {
+        "lugar_id": "lugar_0045",
+        "nombre": "Mount Kilimanjaro",
+        "latitud": -3.0674,
+        "longitud": 37.3556
+      },
+      {
+        "lugar_id": "lugar_0046",
+        "nombre": "The Louvre Pyramid",
+        "latitud": 48.8606,
+        "longitud": 2.3376
+      },
+      {
+        "lugar_id": "lugar_0047",
+        "nombre": "Lake Titicaca",
+        "latitud": -15.9254,
+        "longitud": -69.3356
+      },
+      {
+        "lugar_id": "lugar_0048",
+        "nombre": "Stonehenge",
+        "latitud": 51.1789,
+        "longitud": -1.8262
+      },
+      {
+        "lugar_id": "lugar_0049",
+        "nombre": "Chichen Itza",
+        "latitud": 20.6843,
+        "longitud": -88.5678
+      },
+      {
+        "lugar_id": "lugar_0050",
+        "nombre": "Easter Island",
+        "latitud": -27.1212,
+        "longitud": -109.3665
+      },
+      {
+        "lugar_id": "lugar_0051",
+        "nombre": "The Great Barrier Reef",
+        "latitud": -18.2871,
+        "longitud": 147.6992
+      },
+      {
+        "lugar_id": "lugar_0052",
+        "nombre": "Yosemite National Park",
+        "latitud": 37.8651,
+        "longitud": -119.5383
+      },
+      {
+        "lugar_id": "lugar_0053",
+        "nombre": "Grand Canyon",
+        "latitud": 36.1069,
+        "longitud": -112.1129
+      },
+      {
+        "lugar_id": "lugar_0054",
+        "nombre": "Mount Vesuvius",
+        "latitud": 40.8219,
+        "longitud": 14.4283
+      },
+      {
+        "lugar_id": "lugar_0055",
+        "nombre": "Alcatraz Island",
+        "latitud": 37.8267,
+        "longitud": -122.4233
+      },
+      {
+        "lugar_id": "lugar_0056",
+        "nombre": "Neuschwanstein Castle",
+        "latitud": 47.5576,
+        "longitud": 10.7498
+      },
+      {
+        "lugar_id": "lugar_0057",
+        "nombre": "Angkor Wat",
+        "latitud": 13.4125,
+        "longitud": 103.866
+      },
+      {
+        "lugar_id": "lugar_0058",
+        "nombre": "The Great Wall of China",
+        "latitud": 40.4319,
+        "longitud": 116.5704
+      },
+      {
+        "lugar_id": "lugar_0059",
+        "nombre": "Grand Canyon",
+        "latitud": 36.107,
+        "longitud": -112.113
+      },
+      {
+        "lugar_id": "lugar_0060",
+        "nombre": "Great Barrier Reef",
+        "latitud": -18.2871,
+        "longitud": 147.6992
+      }
+    ],
+    "direcciones": [
+      {
+        "lugar_id": "lugar_0001",
+        "nombre": "Googleplex",
+        "nombre_calle": "Amphitheatre Parkway, Mountain View",
+        "numero_calle": "1600",
+        "ciudad_estado_provincia": "CA 94043",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0002",
+        "nombre": "Apple Park",
+        "nombre_calle": "Apple Park Way, Cupertino",
+        "numero_calle": "1",
+        "ciudad_estado_provincia": "CA 95014",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0003",
+        "nombre": "The White House",
+        "nombre_calle": "Pennsylvania Ave NW, Washington",
+        "numero_calle": "1600",
+        "ciudad_estado_provincia": "DC 20500",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0004",
+        "nombre": "10 Downing Street",
+        "nombre_calle": "Downing St, Westminster",
+        "numero_calle": "10",
+        "ciudad_estado_provincia": "London SW1A 2AA",
+        "pais": "UK"
+      },
+      {
+        "lugar_id": "lugar_0005",
+        "nombre": "Eiffel Tower",
+        "nombre_calle": "Champ de Mars,  Avenue Anatole France",
+        "numero_calle": "5",
+        "ciudad_estado_provincia": "75007 Paris",
+        "pais": "France"
+      },
+      {
+        "lugar_id": "lugar_0006",
+        "nombre": "Apple Park",
+        "nombre_calle": "Infinite Loop, Cupertino",
+        "numero_calle": "1",
+        "ciudad_estado_provincia": "CA 95014",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0007",
+        "nombre": "Buckingham Palace",
+        "nombre_calle": "Westminster",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "London SW1A 1AA",
+        "pais": "UK"
+      },
+      {
+        "lugar_id": "lugar_0008",
+        "nombre": "Statue of Liberty",
+        "nombre_calle": "Liberty Island, New York",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "NY 10004",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0009",
+        "nombre": "Vatican City",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "",
+        "pais": "Vatican"
+      },
+      {
+        "lugar_id": "lugar_0010",
+        "nombre": "Shibuya Crossing",
+        "nombre_calle": "Chome--1 Dogenzaka, Shibuya City",
+        "numero_calle": "2",
+        "ciudad_estado_provincia": "Tokyo 150-0043",
+        "pais": "Japan"
+      },
+      {
+        "lugar_id": "lugar_0011",
+        "nombre": "221B Baker Street",
+        "nombre_calle": "Baker St, Marylebone",
+        "numero_calle": "221B",
+        "ciudad_estado_provincia": "London NW1 6XE",
+        "pais": "UK"
+      },
+      {
+        "lugar_id": "lugar_0012",
+        "nombre": "Great Wall of China",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Beijing",
+        "pais": "China"
+      },
+      {
+        "lugar_id": "lugar_0013",
+        "nombre": "Sydney Opera House",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Sydney NSW 2000",
+        "pais": "Australia"
+      },
+      {
+        "lugar_id": "lugar_0014",
+        "nombre": "CN Tower",
+        "nombre_calle": "Front St W, Toronto",
+        "numero_calle": "301",
+        "ciudad_estado_provincia": "ON M5V 2T6",
+        "pais": "Canada"
+      },
+      {
+        "lugar_id": "lugar_0015",
+        "nombre": "Burj Khalifa",
+        "nombre_calle": "Sheikh Mohammed bin Rashid Blvd",
+        "numero_calle": "1",
+        "ciudad_estado_provincia": "Dubai",
+        "pais": "UAE"
+      },
+      {
+        "lugar_id": "lugar_0016",
+        "nombre": "Christ the Redeemer",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Rio de Janeiro - RJ",
+        "pais": "Brazil"
+      },
+      {
+        "lugar_id": "lugar_0017",
+        "nombre": "Colosseum",
+        "nombre_calle": "Piazza del Colosseo",
+        "numero_calle": "1",
+        "ciudad_estado_provincia": "00184 Roma RM",
+        "pais": "Italy"
+      },
+      {
+        "lugar_id": "lugar_0018",
+        "nombre": "Taj Mahal",
+        "nombre_calle": "Dharmapuri, Forest Colony, Tajganj, Agra",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Uttar Pradesh 282001",
+        "pais": "India"
+      },
+      {
+        "lugar_id": "lugar_0019",
+        "nombre": "Grand Canyon National Park",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Arizona",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0020",
+        "nombre": "Leaning Tower of Pisa",
+        "nombre_calle": "Piazza del Duomo",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "56126 Pisa PI",
+        "pais": "Italy"
+      },
+      {
+        "lugar_id": "lugar_0021",
+        "nombre": "Acropolis of Athens",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Athens 105 58",
+        "pais": "Greece"
+      },
+      {
+        "lugar_id": "lugar_0022",
+        "nombre": "Machu Picchu",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Aguas Calientes 08680",
+        "pais": "Peru"
+      },
+      {
+        "lugar_id": "lugar_0023",
+        "nombre": "Hollywood Walk of Fame",
+        "nombre_calle": "Hollywood, Los Angeles",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "CA 90028",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0024",
+        "nombre": "Niagara Falls",
+        "nombre_calle": "Niagara Falls",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "NY",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0025",
+        "nombre": "Mount Everest",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Everest Base Camp",
+        "pais": "Nepal"
+      },
+      {
+        "lugar_id": "lugar_0026",
+        "nombre": "Petra",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Wadi Musa",
+        "pais": "Jordan"
+      },
+      {
+        "lugar_id": "lugar_0027",
+        "nombre": "Golden Gate Bridge",
+        "nombre_calle": "Golden Gate Bridge, San Francisco",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "CA",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0028",
+        "nombre": "Times Square",
+        "nombre_calle": "Manhattan",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "NY 10036",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0029",
+        "nombre": "Amazon Rainforest",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Amazon Rainforest",
+        "pais": "South America"
+      },
+      {
+        "lugar_id": "lugar_0030",
+        "nombre": "Mount Rushmore",
+        "nombre_calle": "Keystone",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "SD 57751",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0031",
+        "nombre": "Red Square",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Moscow",
+        "pais": "Russia"
+      },
+      {
+        "lugar_id": "lugar_0032",
+        "nombre": "Edinburgh Castle",
+        "nombre_calle": "Castlehill",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Edinburgh EH1 2NG",
+        "pais": "UK"
+      },
+      {
+        "lugar_id": "lugar_0033",
+        "nombre": "Sydney Harbour Bridge",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Sydney NSW",
+        "pais": "Australia"
+      },
+      {
+        "lugar_id": "lugar_0034",
+        "nombre": "Big Ben",
+        "nombre_calle": "Westminster",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "London SW1A 0AA",
+        "pais": "UK"
+      },
+      {
+        "lugar_id": "lugar_0035",
+        "nombre": "Pyramids of Giza",
+        "nombre_calle": "Al Haram, Nazlet El-Semman, Al Haram",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Giza Governorate",
+        "pais": "Egypt"
+      },
+      {
+        "lugar_id": "lugar_0036",
+        "nombre": "Yellowstone National Park",
+        "nombre_calle": "Yellowstone National Park",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "WY 82190",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0037",
+        "nombre": "Hollywood Sign",
+        "nombre_calle": "Los Angeles",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "CA 90068",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0038",
+        "nombre": "Louvre Museum",
+        "nombre_calle": "Rue de Rivoli",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "75001 Paris",
+        "pais": "France"
+      },
+      {
+        "lugar_id": "lugar_0039",
+        "nombre": "Mount Fuji",
+        "nombre_calle": "Kitayama, Fujinomiya",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Shizuoka 418-0112",
+        "pais": "Japan"
+      },
+      {
+        "lugar_id": "lugar_0040",
+        "nombre": "Kremlin",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Moscow",
+        "pais": "Russia"
+      },
+      {
+        "lugar_id": "lugar_0041",
+        "nombre": "Buckingham Palace Gardens",
+        "nombre_calle": "Buckingham Palace Road",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "London SW1A 1AA",
+        "pais": "UK"
+      },
+      {
+        "lugar_id": "lugar_0042",
+        "nombre": "Vatican Museums",
+        "nombre_calle": "Viale Vaticano",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "00165 Roma RM",
+        "pais": "Italy"
+      },
+      {
+        "lugar_id": "lugar_0043",
+        "nombre": "Golden Gate Park",
+        "nombre_calle": "San Francisco",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "CA",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0044",
+        "nombre": "Brandenburg Gate",
+        "nombre_calle": "Pariser Platz",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "10117 Berlin",
+        "pais": "Germany"
+      },
+      {
+        "lugar_id": "lugar_0045",
+        "nombre": "Mount Kilimanjaro",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Kilimanjaro",
+        "pais": "Tanzania"
+      },
+      {
+        "lugar_id": "lugar_0046",
+        "nombre": "The Louvre Pyramid",
+        "nombre_calle": "Rue de Rivoli",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "75001 Paris",
+        "pais": "France"
+      },
+      {
+        "lugar_id": "lugar_0047",
+        "nombre": "Lake Titicaca",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "",
+        "pais": "Lake Titicaca"
+      },
+      {
+        "lugar_id": "lugar_0048",
+        "nombre": "Stonehenge",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Salisbury SP4 7DE",
+        "pais": "UK"
+      },
+      {
+        "lugar_id": "lugar_0049",
+        "nombre": "Chichen Itza",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Yucatan",
+        "pais": "Mexico"
+      },
+      {
+        "lugar_id": "lugar_0050",
+        "nombre": "Easter Island",
+        "nombre_calle": "Easter Island",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Valparaiso Region",
+        "pais": "Chile"
+      },
+      {
+        "lugar_id": "lugar_0051",
+        "nombre": "The Great Barrier Reef",
+        "nombre_calle": "Great Barrier Reef",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Queensland",
+        "pais": "Australia"
+      },
+      {
+        "lugar_id": "lugar_0052",
+        "nombre": "Yosemite National Park",
+        "nombre_calle": "Yosemite National Park",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "CA",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0053",
+        "nombre": "Grand Canyon",
+        "nombre_calle": "Grand Canyon National Park",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Arizona",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0054",
+        "nombre": "Mount Vesuvius",
+        "nombre_calle": "Ottaviano",
+        "numero_calle": "80044",
+        "ciudad_estado_provincia": "Metropolitan City of Naples",
+        "pais": "Italy"
+      },
+      {
+        "lugar_id": "lugar_0055",
+        "nombre": "Alcatraz Island",
+        "nombre_calle": "San Francisco",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "CA",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0056",
+        "nombre": "Neuschwanstein Castle",
+        "nombre_calle": "Neuschwansteinstra�e",
+        "numero_calle": "20",
+        "ciudad_estado_provincia": "87645 Schwangau",
+        "pais": "Germany"
+      },
+      {
+        "lugar_id": "lugar_0057",
+        "nombre": "Angkor Wat",
+        "nombre_calle": "Angkor Archaeological Park",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Krong Siem Reap",
+        "pais": "Cambodia"
+      },
+      {
+        "lugar_id": "lugar_0058",
+        "nombre": "The Great Wall of China",
+        "nombre_calle": "",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Beijing",
+        "pais": "China"
+      },
+      {
+        "lugar_id": "lugar_0059",
+        "nombre": "Grand Canyon",
+        "nombre_calle": "Grand Canyon National Park",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Arizona",
+        "pais": "USA"
+      },
+      {
+        "lugar_id": "lugar_0060",
+        "nombre": "Great Barrier Reef",
+        "nombre_calle": "Great Barrier Reef",
+        "numero_calle": "",
+        "ciudad_estado_provincia": "Queensland",
+        "pais": "Australia"
+      }
+    ]
+  }
+}

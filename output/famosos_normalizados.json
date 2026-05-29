@@ -1,0 +1,373 @@
+{
+  "coleccion": "famosos",
+  "timestamp": "2026-05-26T00:17:40.898081",
+  "stats": {
+    "leidos": 97,
+    "procesados": 60,
+    "duplicados": 37,
+    "errores": 0,
+    "cumpleanios": 0
+  },
+  "registros": [
+    {
+      "nombre": "William Shakespeare",
+      "fecha_nacimiento": "23-04-1564",
+      "edad": 462,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Albert Einstein",
+      "fecha_nacimiento": "14-03-1879",
+      "edad": 147,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Cleopatra",
+      "fecha_nacimiento": "alrededor del 69 a.C.",
+      "edad": null,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Nelson Mandela",
+      "fecha_nacimiento": "18-07-1918",
+      "edad": 107,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Isaac Newton",
+      "fecha_nacimiento": "25-12-1642",
+      "edad": 383,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Leonardo da Vinci",
+      "fecha_nacimiento": "15-04-1452",
+      "edad": 574,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Mahatma Gandhi",
+      "fecha_nacimiento": "02-10-1869",
+      "edad": 156,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Alexander Graham Bell",
+      "fecha_nacimiento": "03-03-1847",
+      "edad": 179,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Marie Curie",
+      "fecha_nacimiento": "07-11-1867",
+      "edad": 158,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Martin Luther King Jr.",
+      "fecha_nacimiento": "15-01-1929",
+      "edad": 97,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "George Washington",
+      "fecha_nacimiento": "22-02-1732",
+      "edad": 294,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Queen Elizabeth II",
+      "fecha_nacimiento": "21-04-1926",
+      "edad": 100,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Napoleon Bonaparte",
+      "fecha_nacimiento": "15-08-1769",
+      "edad": 256,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Galileo Galilei",
+      "fecha_nacimiento": "15-02-1564",
+      "edad": 462,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Beethoven",
+      "fecha_nacimiento": "17-12-1770",
+      "edad": 255,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Winston Churchill",
+      "fecha_nacimiento": "30-11-1874",
+      "edad": 151,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Joan of Arc",
+      "fecha_nacimiento": "06-01-1412",
+      "edad": 614,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Pablo Picasso",
+      "fecha_nacimiento": "25-10-1881",
+      "edad": 144,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Sigmund Freud",
+      "fecha_nacimiento": "06-05-1856",
+      "edad": 170,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Ernest Hemingway",
+      "fecha_nacimiento": "21-07-1899",
+      "edad": 126,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Amelia Earhart",
+      "fecha_nacimiento": "24-07-1897",
+      "edad": 128,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Vincent van Gogh",
+      "fecha_nacimiento": "30-03-1853",
+      "edad": 173,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Michelangelo",
+      "fecha_nacimiento": "06-03-1475",
+      "edad": 551,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Charles Darwin",
+      "fecha_nacimiento": "12-02-1809",
+      "edad": 217,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Abraham Lincoln",
+      "fecha_nacimiento": "12-02-1809",
+      "edad": 217,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Anne Frank",
+      "fecha_nacimiento": "12-06-1929",
+      "edad": 96,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Mozart",
+      "fecha_nacimiento": "27-01-1756",
+      "edad": 270,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "William the Conqueror",
+      "fecha_nacimiento": "alrededor de 1028",
+      "edad": null,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Coco Chanel",
+      "fecha_nacimiento": "19-08-1883",
+      "edad": 142,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Queen Victoria",
+      "fecha_nacimiento": "24-05-1819",
+      "edad": 207,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Rosa Parks",
+      "fecha_nacimiento": "04-02-1913",
+      "edad": 113,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Julius Caesar",
+      "fecha_nacimiento": "100 a.C./07/12",
+      "edad": null,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "John F. Kennedy",
+      "fecha_nacimiento": "29-05-1917",
+      "edad": 108,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Frida Kahlo",
+      "fecha_nacimiento": "06-07-1907",
+      "edad": 118,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Isaac Asimov",
+      "fecha_nacimiento": "02-01-1920",
+      "edad": 106,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Alexander the Great",
+      "fecha_nacimiento": "356 a.C./07/20",
+      "edad": null,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Edgar Allan Poe",
+      "fecha_nacimiento": "19-01-1809",
+      "edad": 217,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Genghis Khan",
+      "fecha_nacimiento": "alrededor de 1162",
+      "edad": null,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Joan Miró",
+      "fecha_nacimiento": "20-04-1893",
+      "edad": 133,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Augustus",
+      "fecha_nacimiento": "63 a.C./09/23",
+      "edad": null,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Jane Austen",
+      "fecha_nacimiento": "16-12-1775",
+      "edad": 250,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Neil Armstrong",
+      "fecha_nacimiento": "05-08-1930",
+      "edad": 95,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Christopher Columbus",
+      "fecha_nacimiento": "31-10-1451",
+      "edad": 574,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Mother Teresa",
+      "fecha_nacimiento": "26-08-1910",
+      "edad": 115,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Che Guevara",
+      "fecha_nacimiento": "14-06-1928",
+      "edad": 97,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Queen Cleopatra VII",
+      "fecha_nacimiento": "alrededor del 69 a.C.",
+      "edad": null,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Ernest Shackleton",
+      "fecha_nacimiento": "15-02-1874",
+      "edad": 152,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Queen Isabella I of Castile",
+      "fecha_nacimiento": "22-04-1451",
+      "edad": 575,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Benjamin Franklin",
+      "fecha_nacimiento": "17-01-1706",
+      "edad": 320,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Theodore Roosevelt",
+      "fecha_nacimiento": "27-10-1858",
+      "edad": 167,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Joan Baez",
+      "fecha_nacimiento": "09-01-1941",
+      "edad": 85,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "William Faulkner",
+      "fecha_nacimiento": "25-09-1897",
+      "edad": 128,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Emily Dickinson",
+      "fecha_nacimiento": "10-12-1830",
+      "edad": 195,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Leo Tolstoy",
+      "fecha_nacimiento": "09-09-1828",
+      "edad": 197,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Queen Elizabeth I",
+      "fecha_nacimiento": "07-09-1533",
+      "edad": 492,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Elvis Presley",
+      "fecha_nacimiento": "08-01-1935",
+      "edad": 91,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Michael Jackson",
+      "fecha_nacimiento": "29-08-1958",
+      "edad": 67,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Steve Jobs",
+      "fecha_nacimiento": "24-02-1955",
+      "edad": 71,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "Marilyn Monroe",
+      "fecha_nacimiento": "01-06-1926",
+      "edad": 99,
+      "es_cumpleanios": false
+    },
+    {
+      "nombre": "John Lennon",
+      "fecha_nacimiento": "09-10-1940",
+      "edad": 85,
+      "es_cumpleanios": false
+    }
+  ]
+}

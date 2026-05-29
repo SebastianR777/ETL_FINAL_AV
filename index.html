@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Normalizador ETL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    /* ── TEMA OSCURO (default) ── */
+    :root{
+      --bg-page:#080c14;
+      --bg-card:rgba(255,255,255,.035);
+      --bg-card-hover:rgba(255,255,255,.055);
+      --border:rgba(255,255,255,.07);
+      --border-strong:rgba(255,255,255,.13);
+      --text-primary:#e2e8f8;
+      --text-secondary:#8a9bbf;
+      --text-muted:#3d4e6a;
+      --accent:#7aa0ff;
+      --accent-bg:rgba(99,140,255,.15);
+      --accent-border:rgba(99,140,255,.28);
+      --zona-bg:rgba(99,140,255,.04);
+      --zona-border:rgba(99,140,255,.22);
+      --zona-hover:rgba(99,140,255,.09);
+      --btn-primary-bg:#2a4aad;
+      --btn-primary-color:#c8d8ff;
+      --stat-bg:rgba(255,255,255,.03);
+      --stat-ok-bg:rgba(74,222,128,.05);
+      --stat-ok-border:rgba(74,222,128,.15);
+      --stat-ok-color:#4ade80;
+      --stat-err-bg:rgba(248,113,113,.05);
+      --stat-err-border:rgba(248,113,113,.15);
+      --stat-err-color:#f87171;
+      --stat-warn-bg:rgba(251,191,36,.05);
+      --stat-warn-border:rgba(251,191,36,.15);
+      --stat-warn-color:#fbbe2471;
+      --th-bg:rgba(255,255,255,.03);
+      --td-hover:rgba(255,255,255,.02);
+      --td-border:rgba(255,255,255,.04);
+      --nuevo:#4ade80;
+      --viejo:#f87171;
+      --code-bg:rgba(255,255,255,.07);
+      --input-bg:rgba(255,255,255,.05);
+      --input-border:rgba(255,255,255,.1);
+      --op-bg:rgba(255,255,255,.03);
+      --op-border:rgba(255,255,255,.07);
+      --pill-bg:rgba(99,140,255,.12);
+      --pill-color:#7aa0ff;
+      --pill-border:rgba(99,140,255,.25);
+      --pill-off-bg:rgba(255,255,255,.04);
+      --pill-off-color:#3d4e6a;
+      --scroll-border:rgba(255,255,255,.06);
+      --tab-active-color:#7aa0ff;
+      --tab-color:#5a6a8a;
+      --tab-border:rgba(255,255,255,.06);
+      --h1-color:#f0f4ff;
+      --h3-color:#c8d8ff;
+      --spinner-track:rgba(255,255,255,.1);
+      --note-color:#5a6a8a;
+      --fn-color:#7aa0ff;
+      --sep-label:#5a6a8a;
+      --hr-color:rgba(255,255,255,.05);
+    }
+
+    /* ── TEMA CLARO ── */
+    body.light{
+      --bg-page:#f0f4fa;
+      --bg-card:#ffffff;
+      --bg-card-hover:#f8faff;
+      --border:#e2e8f0;
+      --border-strong:#c7d5e8;
+      --text-primary:#1e293b;
+      --text-secondary:#475569;
+      --text-muted:#94a3b8;
+      --accent:#2563eb;
+      --accent-bg:#eff6ff;
+      --accent-border:#93c5fd;
+      --zona-bg:#f8fbff;
+      --zona-border:#93c5fd;
+      --zona-hover:#eff6ff;
+      --btn-primary-bg:#2563eb;
+      --btn-primary-color:#ffffff;
+      --stat-bg:#f0f4ff;
+      --stat-ok-bg:#f0fdf4;
+      --stat-ok-border:#bbf7d0;
+      --stat-ok-color:#16a34a;
+      --stat-err-bg:#fff5f5;
+      --stat-err-border:#fecaca;
+      --stat-err-color:#dc2626;
+      --stat-warn-bg:#fffbeb;
+      --stat-warn-border:#fde68a;
+      --stat-warn-color:#d97706;
+      --th-bg:#f0f4ff;
+      --td-hover:#fafbff;
+      --td-border:#f1f5f9;
+      --nuevo:#16a34a;
+      --viejo:#dc2626;
+      --code-bg:#f1f5f9;
+      --input-bg:#ffffff;
+      --input-border:#cbd5e1;
+      --op-bg:#fafafa;
+      --op-border:#e2e8f0;
+      --pill-bg:#eff6ff;
+      --pill-color:#1d4ed8;
+      --pill-border:#93c5fd;
+      --pill-off-bg:#f1f5f9;
+      --pill-off-color:#94a3b8;
+      --scroll-border:#e2e8f0;
+      --tab-active-color:#2563eb;
+      --tab-color:#64748b;
+      --tab-border:#e2e8f0;
+      --h1-color:#1e40af;
+      --h3-color:#1e293b;
+      --spinner-track:#e2e8f0;
+      --note-color:#64748b;
+      --fn-color:#2563eb;
+      --sep-label:#475569;
+      --hr-color:#e2e8f0;
+    }
+
+    html,body{min-height:100%;transition:background .4s,color .4s}
+    body{
+      font-family:'Space Grotesk',system-ui,sans-serif;
+      background:var(--bg-page);
+      color:var(--text-primary);
+      position:relative;
+      overflow-x:hidden;
+    }
+
+    /* ── CANVAS FONDO ── */
+    #sky-canvas{
+      position:fixed;top:0;left:0;width:100%;height:100%;
+      pointer-events:none;z-index:0;
+      transition:opacity .6s;
+    }
+    body.light #sky-canvas{opacity:0}
+
+    /* ── WRAPPER ── */
+    .page-wrap{
+      position:relative;z-index:2;
+      max-width:1000px;margin:0 auto;padding:36px 1.2rem 60px;
+    }
+
+    /* ── TOGGLE BOTÓN ── */
+    #theme-toggle{
+      position:fixed;top:18px;right:22px;z-index:100;
+      width:46px;height:46px;border-radius:50%;
+      border:1.5px solid var(--accent-border);
+      background:var(--accent-bg);
+      cursor:pointer;font-size:20px;
+      display:flex;align-items:center;justify-content:center;
+      transition:background .3s,border-color .3s,transform .2s;
+      box-shadow:0 2px 12px rgba(0,0,0,.25);
+    }
+    #theme-toggle:hover{transform:scale(1.1)}
+    #theme-toggle .icon-moon{display:block}
+    #theme-toggle .icon-sun{display:none}
+    body.light #theme-toggle .icon-moon{display:none}
+    body.light #theme-toggle .icon-sun{display:block}
+
+    /* ── HEADER ── */
+    h1{
+      font-size:1.7rem;font-weight:600;
+      color:var(--h1-color);
+      margin-bottom:.1rem;letter-spacing:-.3px;
+    }
+    .sub{color:var(--text-muted);margin:.2rem 0 1.5rem;font-size:.95rem}
+
+    /* ── CARD ── */
+    .card{
+      background:var(--bg-card);
+      border:1px solid var(--border);
+      border-radius:14px;padding:1.4rem;
+      margin-bottom:1.4rem;
+      transition:background .3s,border-color .3s;
+    }
+    h3{margin:.2rem 0 1rem;font-size:1.05rem;color:var(--h3-color)}
+
+    /* ── TABS ── */
+    .tabs{display:flex;gap:.4rem;margin-bottom:1rem;flex-wrap:wrap;border-bottom:1px solid var(--tab-border);padding-bottom:0}
+    .tab{
+      padding:.45rem 1.1rem;border-radius:7px 7px 0 0;
+      border:none;border-bottom:2px solid transparent;
+      cursor:pointer;font-weight:600;
+      color:var(--tab-color);background:transparent;
+      font-size:.88rem;transition:.15s;
+      font-family:'Space Grotesk',sans-serif;
+      margin-bottom:-1px;
+    }
+    .tab:hover{color:var(--accent)}
+    .tab.active{color:var(--tab-active-color);border-bottom-color:var(--tab-active-color)}
+
+    /* ── ZONA CARGA ── */
+    .zona{
+      display:flex;align-items:center;justify-content:center;gap:.6rem;
+      width:100%;border:2px dashed var(--zona-border);border-radius:10px;
+      padding:1.4rem;text-align:center;cursor:pointer;
+      color:var(--accent);font-weight:600;font-size:.95rem;
+      background:var(--zona-bg);transition:.15s;
+    }
+    .zona:hover{background:var(--zona-hover);border-color:var(--accent)}
+    .zona svg{flex-shrink:0}
+    input[type=file]{display:none}
+    .fn{margin:.35rem 0 0;color:var(--fn-color);font-size:.82rem;min-height:1rem}
+
+    /* ── BUTTONS ── */
+    .btn{display:inline-flex;align-items:center;gap:.4rem;border:none;padding:.5rem 1.4rem;border-radius:7px;font-size:.9rem;font-weight:600;cursor:pointer;transition:.15s;margin-top:.7rem;font-family:'Space Grotesk',sans-serif}
+    .btn:disabled{opacity:.5;cursor:not-allowed}
+    .btn-blue{background:var(--btn-primary-bg);color:var(--btn-primary-color)}
+    .btn-blue:hover:not(:disabled){filter:brightness(1.15)}
+    .btn-green{background:var(--stat-ok-bg);color:var(--stat-ok-color);border:1px solid var(--stat-ok-border)}
+    .btn-green:hover:not(:disabled){filter:brightness(.95)}
+    .btn-orange{background:#ea580c;color:#fff}.btn-orange:hover:not(:disabled){background:#c2410c}
+    .btn-violet{background:#7c3aed;color:#fff}.btn-violet:hover:not(:disabled){background:#6d28d9}
+    .btn-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+
+    /* ── STATS ── */
+    .stats{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:1rem}
+    .stat{background:var(--stat-bg);border:1px solid var(--border);border-radius:9px;padding:.65rem 1rem;text-align:center;flex:1;min-width:70px;transition:background .3s}
+    .stat .num{font-size:1.5rem;font-weight:700;color:var(--accent);font-family:'JetBrains Mono',monospace}
+    .stat .lbl{font-size:.73rem;color:var(--text-muted);margin-top:.1rem}
+    .stat.ok{background:var(--stat-ok-bg);border-color:var(--stat-ok-border)}.stat.ok .num{color:var(--stat-ok-color)}
+    .stat.err{background:var(--stat-err-bg);border-color:var(--stat-err-border)}.stat.err .num{color:var(--stat-err-color)}
+    .stat.warn{background:var(--stat-warn-bg);border-color:var(--stat-warn-border)}.stat.warn .num{color:var(--stat-warn-color)}
+
+    /* ── TABLE ── */
+    .scroll{max-height:360px;overflow-y:auto;border:1px solid var(--scroll-border);border-radius:9px}
+    table{width:100%;border-collapse:collapse;font-size:.83rem}
+    th{background:var(--th-bg);padding:.45rem .6rem;text-align:left;color:var(--text-secondary);position:sticky;top:0;font-size:.8rem;border-bottom:1px solid var(--border)}
+    td{padding:.38rem .6rem;border-top:1px solid var(--td-border);color:var(--text-primary)}
+    tr:hover td{background:var(--td-hover)}
+    .nuevo{color:var(--nuevo);font-weight:500}
+    .viejo{color:var(--viejo)}
+
+    /* ── UTIL ── */
+    .hidden{display:none}
+    .panel{display:none}.panel.active{display:block}
+    .spinner{display:inline-block;width:15px;height:15px;border:2.5px solid var(--spinner-track);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:4px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .note{font-size:.8rem;color:var(--note-color);margin:.35rem 0 0}
+    code{background:var(--code-bg);padding:1px 5px;border-radius:4px;font-size:.82em;font-family:'JetBrains Mono',monospace;color:var(--accent)}
+    hr{border:none;border-top:1px solid var(--hr-color);margin:1rem 0}
+
+    /* ── GENÉRICO ── */
+    select,input[type=text]{
+      padding:.42rem .7rem;border:1px solid var(--input-border);
+      border-radius:7px;font-size:.88rem;
+      background:var(--input-bg);color:var(--text-primary);
+      font-family:'Space Grotesk',sans-serif;
+      transition:background .3s,border-color .3s;
+    }
+    select:focus,input[type=text]:focus{outline:2px solid var(--accent);border-color:transparent}
+    .op-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:.7rem 0}
+    .op-item{display:flex;align-items:center;gap:.5rem;font-size:.88rem;cursor:pointer;padding:.3rem .5rem;border-radius:6px;border:1px solid var(--op-border);background:var(--op-bg);color:var(--text-primary);transition:.15s}
+    .op-item:hover{background:var(--accent-bg);border-color:var(--accent-border)}
+    .op-item input[type=checkbox]{display:inline;width:15px;height:15px;cursor:pointer;accent-color:var(--accent)}
+    .col-pill{display:inline-flex;align-items:center;gap:.35rem;background:var(--pill-bg);color:var(--pill-color);border-radius:20px;padding:.25rem .75rem;font-size:.82rem;margin:.2rem;cursor:pointer;border:1.5px solid var(--pill-border);user-select:none;transition:.1s}
+    .col-pill:hover{filter:brightness(1.1)}
+    .col-pill.off{background:var(--pill-off-bg);color:var(--pill-off-color);border-color:var(--border)}
+    .col-pill input{display:none}
+    .sep-row{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;margin:.6rem 0}
+    .sep-row label{font-size:.88rem;font-weight:600;color:var(--sep-label)}
+
+    /* ── SCROLLBAR ── */
+    .scroll::-webkit-scrollbar{width:5px}
+    .scroll::-webkit-scrollbar-track{background:transparent}
+    .scroll::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:4px}
+  </style>
+</head>
+<body>
+
+<canvas id="sky-canvas"></canvas>
+
+<button id="theme-toggle" onclick="toggleTema()" title="Cambiar tema">
+  <span class="icon-moon">🌙</span>
+  <span class="icon-sun">☀️</span>
+</button>
+
+<div class="page-wrap">
+
+<h1>📊 Normalizador ETL</h1>
+<p class="sub"></p>
+<p class="sub"></p>
+
+
+<!-- ── TABS ── -->
+<div class="tabs">
+  <button class="tab active" onclick="mostrarPanel('famosos',this)">👤 Famosos </button>
+  <button class="tab" onclick="mostrarPanel('lugares',this)">🗺 Lugares </button>
+  <button class="tab" onclick="mostrarPanel('generico',this)">🗂 Normalizador General</button>
+</div>
+
+<!-- ══════════════════════════════ FAMOSOS ══ -->
+<div id="panel-famosos" class="panel active">
+  <div class="card">
+    <h3>Cargar archivo de famosos</h3>
+    <p class="note" style="margin-bottom:.9rem">Formato: <code>Nombre - fecha</code> — acepta YYYY/MM/DD, DD-MM-YYYY, YYYY-MM-DD, DD/MM/YYYY, etc.</p>
+    <label class="zona" for="arch-famosos">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      Seleccionar Archivo 
+    </label>
+    <input type="file" id="arch-famosos" accept=".txt,.TXT,.csv">
+    <p class="fn" id="fn-famosos"></p>
+    <div class="btn-row">
+      <button class="btn btn-blue" onclick="procesarFamosos()" id="btn-famosos">Procesar</button>
+      <button class="btn btn-green hidden" id="btn-dl-famosos" onclick="descargarFamosos()">⬇ Descargar JSON</button>
+    </div>
+  </div>
+
+  <div id="resultado-famosos" class="hidden">
+    <div class="card">
+      <h3>Resultado — Famosos</h3>
+      <div class="stats" id="stats-famosos"></div>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>#</th><th>Nombre</th><th>Fecha Nacimiento (DD-MM-YYYY)</th><th>Edad</th><th>🎂</th></tr></thead>
+          <tbody id="tabla-famosos"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Log de cambios</h3>
+      <div class="scroll">
+        <table><thead><tr><th>Línea</th><th>Acción</th></tr></thead>
+        <tbody id="tabla-cambios-famosos"></tbody></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ LUGARES ══ -->
+<div id="panel-lugares" class="panel">
+  <div class="card">
+    <h3>Cargar archivo de lugares</h3>
+    <p class="note" style="margin-bottom:.9rem">Formato: <code>Nombre;Dirección;Lat,Lon</code></p>
+    <label class="zona" for="arch-lugares">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      Seleccionar Archivo 
+    </label>
+    <input type="file" id="arch-lugares" accept=".txt,.TXT,.csv">
+    <p class="fn" id="fn-lugares"></p>
+    <div class="btn-row">
+      <button class="btn btn-blue" onclick="procesarLugares()" id="btn-lugares">Procesar</button>
+      <button class="btn btn-green hidden" id="btn-dl-lugares" onclick="descargarLugares()">⬇ Descargar JSON</button>
+    </div>
+  </div>
+
+  <div id="resultado-lugares" class="hidden">
+    <div class="card">
+      <h3>Tabla: Lugares</h3>
+      <div class="scroll"><table><thead><tr><th>ID</th><th>Nombre</th></tr></thead><tbody id="tabla-lugares"></tbody></table></div>
+    </div>
+    <div class="card">
+      <h3>Tabla: Direcciones</h3>
+      <div class="scroll"><table><thead><tr><th>lugar_id</th><th>Nombre Calle</th><th>N°</th><th>Ciudad / Prov.</th><th>País</th></tr></thead><tbody id="tabla-direcciones"></tbody></table></div>
+    </div>
+    <div class="card">
+      <h3>Tabla: Georeferencias</h3>
+      <div class="stats" id="stats-lugares"></div>
+      <div class="scroll"><table><thead><tr><th>lugar_id</th><th>Nombre</th><th>Latitud</th><th>Longitud</th></tr></thead><tbody id="tabla-georef"></tbody></table></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ GENÉRICO ══ -->
+<div id="panel-generico" class="panel">
+  <div class="card">
+    <h3>Normalizar cualquier archivo de datos</h3>
+    <p class="note" style="margin-bottom:.9rem">
+      Acepta <code>.txt</code> y <code>.csv</code>. Detecta automáticamente columna única o multi-columna con separador.
+      Ideal para listas simples, tablas de comunas, registros crudos, etc.
+    </p>
+    <label class="zona" for="arch-gen">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      Seleccionar archivo (.txt / .csv)
+    </label>
+    <input type="file" id="arch-gen" accept=".txt,.TXT,.csv,.CSV">
+    <p class="fn" id="fn-gen"></p>
+
+    <div class="sep-row" style="margin-top:1rem">
+      <label>Separador:</label>
+      <select id="sep-sel" onchange="onSepChange(this.value)">
+        <option value="auto">🔍 Detectar automáticamente</option>
+        <option value="one">Sin separador (una columna)</option>
+        <option value=";">Punto y coma ( ; )</option>
+        <option value=",">Coma ( , )</option>
+        <option value="&#9;">Tabulador</option>
+        <option value="|">Pipe ( | )</option>
+        <option value="custom">Personalizado…</option>
+      </select>
+      <input type="text" id="sep-custom" placeholder="ej: ::" style="width:90px;display:none" maxlength="5">
+      <label style="margin-left:.5rem">Encabezado:</label>
+      <select id="header-sel">
+        <option value="1">Primera fila = encabezado</option>
+        <option value="0">Sin encabezado</option>
+      </select>
+    </div>
+    <button class="btn btn-blue" onclick="previsualizarGen()" id="btn-previs">Vista previa</button>
+  </div>
+
+  <!-- Config columnas + ops -->
+  <div id="card-config-gen" class="card hidden">
+    <h3>Configurar normalización</h3>
+
+    <p style="font-size:.88rem;font-weight:600;color:#475569;margin-bottom:.4rem">Columnas detectadas — clic para activar/desactivar:</p>
+    <div id="col-pills"></div>
+
+    <hr>
+    <p style="font-size:.88rem;font-weight:600;color:#475569;margin-bottom:.5rem">Operaciones a aplicar:</p>
+    <div class="op-grid">
+      <label class="op-item"><input type="checkbox" id="op-dedup" checked> Eliminar duplicados exactos</label>
+      <label class="op-item"><input type="checkbox" id="op-fuzzy" checked> Eliminar duplicados similares (tildes, espacios extra, letras repetidas)</label>
+      <label class="op-item"><input type="checkbox" id="op-trim" checked> Eliminar espacios extra (trim)</label>
+      <label class="op-item"><input type="checkbox" id="op-empty" checked> Eliminar filas completamente vacías</label>
+      <label class="op-item"><input type="checkbox" id="op-ctrl" checked> Eliminar caracteres de control</label>
+      <label class="op-item"><input type="checkbox" id="op-title" checked> Capitalización tipo Título (Primer letra mayúscula)</label>
+      <label class="op-item"><input type="checkbox" id="op-lower"> Todo en minúsculas</label>
+      <label class="op-item"><input type="checkbox" id="op-upper"> TODO EN MAYÚSCULAS</label>
+      <label class="op-item"><input type="checkbox" id="op-fechas" checked> Normalizar fechas → DD-MM-YYYY</label>
+      <label class="op-item"><input type="checkbox" id="op-addid"> Agregar columna ID autoincremental</label>
+      <label class="op-item"><input type="checkbox" id="op-sort"> Ordenar alfabéticamente</label>
+    </div>
+
+    <button class="btn btn-blue" onclick="normalizarGen()" id="btn-norm-gen">Normalizar</button>
+  </div>
+
+  <!-- Resultado genérico -->
+  <div id="resultado-gen" class="hidden">
+    <div class="card">
+      <h3>Resultado normalizado</h3>
+      <div class="stats" id="stats-gen"></div>
+      <div class="scroll">
+        <table id="tabla-gen">
+          <thead id="thead-gen"></thead>
+          <tbody id="tbody-gen"></tbody>
+        </table>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-green" onclick="descargarGenCSV()">⬇ Descargar CSV</button>
+        <button class="btn btn-green" onclick="descargarGenTXT()">⬇ Descargar TXT</button>
+        <button class="btn btn-green" onclick="descargarGenJSON()">⬇ Descargar JSON</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Log de cambios</h3>
+      <div class="scroll">
+        <table><thead><tr><th>Fila</th><th>Acción</th></tr></thead>
+        <tbody id="tbody-log-gen"></tbody></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  ESTADO GLOBAL
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+const HOY = new Date();
+let datosFamosos  = null;   // {json, nombre}
+let datosLugares  = null;   // {json, nombre}
+let datosGenerico = null;   // {csv, txt, json, nombre}
+
+// ── helpers UI ──
+function mostrarPanel(id, btn) {
+  document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  document.getElementById("panel-"+id).classList.add("active");
+  btn.classList.add("active");
+}
+
+function fmtStat(n, lbl, color="#2563eb") {
+  return `<div class="stat"><div class="num" style="color:${color}">${n}</div><div class="lbl">${lbl}</div></div>`;
+}
+
+function leerArchivo(id, enc="utf-8") {
+  return new Promise((res,rej)=>{
+    const f = document.getElementById(id).files[0];
+    if (!f) { rej("No se seleccionó archivo."); return; }
+    const r = new FileReader();
+    r.onload = e => res(e.target.result);
+    r.onerror = () => rej("Error al leer archivo.");
+    r.readAsText(f, enc);
+  });
+}
+
+function blob(contenido, nombre, tipo) {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([contenido],{type:tipo}));
+  a.download = nombre; a.click();
+}
+
+// labels de input file
+["arch-famosos","arch-lugares","arch-gen"].forEach(id => {
+  const map = {"arch-famosos":"fn-famosos","arch-lugares":"fn-lugares","arch-gen":"fn-gen"};
+  document.getElementById(id).addEventListener("change", e => {
+    document.getElementById(map[id]).textContent = e.target.files[0]?.name || "";
+  });
+});
+
+// ── mutuo excluyente: título vs lower vs upper ──
+["op-title","op-lower","op-upper"].forEach(id => {
+  document.getElementById(id).addEventListener("change", function() {
+    if (this.checked) {
+      ["op-title","op-lower","op-upper"].filter(x=>x!==id)
+        .forEach(x => document.getElementById(x).checked = false);
+    }
+  });
+});
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  FAMOSOS
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+function parsearFecha(txt) {
+  txt = txt.trim();
+  if (/a\.?c\.?|alrededor/i.test(txt)) return null;
+  let m;
+
+  // Año negativo (ej: -69/01/15)
+  m = txt.match(/^(-\d+)[\/\-](\d{1,2})[\/\-](\d{1,2})$/);
+  if (m) return {anio:+m[1], mes:+m[2], dia:+m[3], errorAnioNegativo: true};
+
+  // YYYY/MM/DD o YYYY-MM-DD — año al frente, sin ambigüedad
+  m = txt.match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})$/);
+  if (m) {
+    const anio=+m[1], mes=+m[2], dia=+m[3];
+    const errorRango = mes<1||mes>12||dia<1||dia>31||(mes===2&&dia>29)||([4,6,9,11].includes(mes)&&dia>30);
+    return {anio, mes, dia, errorRango};
+  }
+
+  // DD/MM/YYYY o MM/DD/YYYY — posible ambigüedad
+  m = txt.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
+  if (m) {
+    const anio=+m[3], parteA=+m[1], parteB=+m[2];
+    // Fuera de rango absoluto → error
+    if (parteA<1||parteB<1||parteA>31||parteB>12) {
+      return {anio, mes:parteB, dia:parteA, errorRango: true};
+    }
+    // Ambigua: ambas partes ≤ 12, no se puede saber si es DD/MM o MM/DD
+    if (parteA<=12 && parteB<=12) {
+      return {anio, mes:parteB, dia:parteA, ambigua: true};
+    }
+    // parteA > 12 → claramente es el día (DD/MM/YYYY)
+    return {anio, mes:parteB, dia:parteA, errorRango: false};
+  }
+  return null;
+}
+
+function calcularEdad(dia,mes,anio) {
+  let e = HOY.getFullYear()-anio;
+  if (HOY.getMonth()<mes-1||(HOY.getMonth()===mes-1&&HOY.getDate()<dia)) e--;
+  return e>=0?e:null;
+}
+
+function esCumple(dia,mes){return HOY.getDate()===dia&&HOY.getMonth()+1===mes;}
+
+async function procesarFamosos() {
+  const btn=document.getElementById("btn-famosos");
+  btn.disabled=true; btn.innerHTML='<span class="spinner"></span>Procesando…';
+  let texto;
+  try { texto = await leerArchivo("arch-famosos"); }
+  catch(e) { alert(e); btn.disabled=false; btn.textContent="Procesar"; return; }
+
+  const lineas  = texto.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+  const cambios=[], vistos=new Map(), registros=[];
+
+  for (let i=0;i<lineas.length;i++) {
+    let ln = lineas[i].replace(/^\d+\.\s*/,"");
+    const sep = ln.indexOf(" - ");
+    if (sep===-1) continue;
+    const nombre=ln.slice(0,sep).trim(), fechaRaw=ln.slice(sep+3).trim();
+    const p=parsearFecha(fechaRaw);
+    let fechaNorm, edad, cumple, errorFecha=null, ambiguaFecha=false;
+    if (!p) { fechaNorm=fechaRaw; edad=null; cumple=false; }
+    else {
+      const {anio,mes,dia,errorAnioNegativo,errorRango,ambigua}=p;
+      if (errorAnioNegativo) {
+        fechaNorm=fechaRaw; edad=null; cumple=false;
+        errorFecha="año negativo no válido";
+      } else if (errorRango) {
+        fechaNorm=`${String(dia).padStart(2,"0")}-${String(mes).padStart(2,"0")}-${anio}`;
+        edad=null; cumple=false;
+        errorFecha="fecha fuera de rango";
+      } else if (ambigua) {
+        fechaNorm=`${String(dia).padStart(2,"0")}-${String(mes).padStart(2,"0")}-${anio}`;
+        edad=calcularEdad(dia,mes,anio); cumple=esCumple(dia,mes);
+        ambiguaFecha=true;
+        cambios.push({linea:i+1,accion:`Fecha ambigua: '${fechaRaw}' puede ser DD/MM o MM/DD`});
+      } else {
+        fechaNorm=`${String(dia).padStart(2,"0")}-${String(mes).padStart(2,"0")}-${anio}`;
+        edad=calcularEdad(dia,mes,anio); cumple=esCumple(dia,mes);
+        if (fechaRaw!==fechaNorm) cambios.push({linea:i+1,accion:`Fecha: '${fechaRaw}' → '${fechaNorm}'`});
+      }
+    }
+    const clave=nombre.toLowerCase()+"|"+fechaNorm.toLowerCase();
+    if (vistos.has(clave)) { cambios.push({linea:i+1,accion:`DUPLICADO (línea ${vistos.get(clave)})`}); continue; }
+    vistos.set(clave,i+1);
+    registros.push({nombre,fecha_nacimiento:fechaNorm,edad,es_cumpleanios:cumple,errorFecha,ambiguaFecha});
+  }
+
+  const dup=cambios.filter(c=>c.accion.startsWith("DUP")).length;
+  document.getElementById("stats-famosos").innerHTML=
+    fmtStat(lineas.length,"Leídos")+fmtStat(registros.length,"Únicos","#16a34a")+
+    fmtStat(dup,"Duplicados","#dc2626")+fmtStat(registros.filter(r=>r.es_cumpleanios).length,"Cumplen hoy 🎂","#f59e0b");
+
+  document.getElementById("tabla-famosos").innerHTML=registros.map((r,i)=>{
+    let tdClass="nuevo", nota="";
+    if (r.errorFecha) {
+      tdClass="viejo";
+      nota=` <span style="font-size:.75rem;color:#dc2626;font-weight:400">⚠ ${r.errorFecha}</span>`;
+    } else if (r.ambiguaFecha) {
+      tdClass="";
+      nota=` <span style="font-size:.75rem;color:#b45309;font-weight:400">? ¿DD/MM o MM/DD?</span>`;
+    }
+    return `<tr ${r.es_cumpleanios?"style='background:#fefce8'":""}>
+      <td style="color:#94a3b8">${i+1}</td><td>${r.nombre}</td>
+      <td class="${tdClass}" style="${r.ambiguaFecha?"color:#b45309;font-weight:500":""}">${r.fecha_nacimiento}${nota}</td>
+      <td>${r.edad!==null?r.edad+" años":"—"}</td>
+      <td>${r.es_cumpleanios?"🎂":""}</td>
+    </tr>`;
+  }).join("");
+
+  document.getElementById("tabla-cambios-famosos").innerHTML=
+    cambios.map(c=>`<tr><td style="color:#94a3b8">#${c.linea}</td><td>${c.accion}</td></tr>`).join("") ||
+    "<tr><td colspan='2' style='color:#94a3b8'>Sin cambios registrados</td></tr>";
+
+  const jsonStr=JSON.stringify({coleccion:"famosos",timestamp:new Date().toISOString(),
+    stats:{leidos:lineas.length,unicos:registros.length,duplicados:dup},registros,cambios},null,2);
+  datosFamosos={json:jsonStr};
+
+  document.getElementById("resultado-famosos").classList.remove("hidden");
+  document.getElementById("btn-dl-famosos").classList.remove("hidden");
+  btn.disabled=false; btn.textContent="Procesar";
+}
+
+function descargarFamosos(){
+  if (!datosFamosos) return;
+  blob(datosFamosos.json,"famosos_normalizados.json","application/json");
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  LUGARES
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+function parsearDireccion(raw) {
+  if (!raw||!raw.trim()) return {nombre_calle:"",numero_calle:"",ciudad_estado_provincia:"",pais:""};
+  const p=raw.split(",").map(s=>s.trim()).filter(Boolean);
+  const pais=p.at(-1)||"", ciudad=p.at(-2)||"", calleStr=p.slice(0,-2).join(", ");
+  const nm=calleStr.match(/\b(\d+[A-Za-z]?)\b/);
+  const num=nm?nm[1]:"";
+  const calle=num?calleStr.replace(num,"").replace(/^[,\s]+|[,\s]+$/g,""):calleStr;
+  return {nombre_calle:calle,numero_calle:num,ciudad_estado_provincia:ciudad,pais};
+}
+
+async function procesarLugares() {
+  const btn=document.getElementById("btn-lugares");
+  btn.disabled=true; btn.innerHTML='<span class="spinner"></span>Procesando…';
+  let texto;
+  try { texto=await leerArchivo("arch-lugares"); }
+  catch(e) { alert(e); btn.disabled=false; btn.textContent="Procesar"; return; }
+
+  let lineas=texto.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+  if (lineas[0]&&lineas[0].includes("Nombre del lugar")) lineas=lineas.slice(1);
+
+  const vistos=new Map(),lugares=[],georef=[],dirs=[],dups=[];
+  let id=1;
+  for (let i=0;i<lineas.length;i++){
+    const c=lineas[i].split(";");
+    if (c.length<3) continue;
+    const nombre=c[0].trim().replace(/[\x00-\x1f\x7f]/g,"");
+    if (!nombre) continue;
+    const dirRaw=c[1].trim(), geoRaw=c[2].trim();
+    const clave=nombre.toLowerCase()+"|"+geoRaw.toLowerCase();
+    if (vistos.has(clave)) { dups.push({linea:i+2,nombre,duplica_a:vistos.get(clave)}); continue; }
+    vistos.set(clave,i+2);
+    const gm=geoRaw.match(/^(-?\d+\.?\d*)\s*,\s*(-?\d+\.?\d*)$/);
+    const geo=gm?{latitud:+gm[1],longitud:+gm[2]}:{latitud:null,longitud:null};
+    const lid="lugar_"+String(id++).padStart(4,"0");
+    lugares.push({id:lid,nombre});
+    georef.push({lugar_id:lid,nombre,...geo});
+    dirs.push({lugar_id:lid,nombre,...parsearDireccion(dirRaw)});
+  }
+
+  document.getElementById("stats-lugares").innerHTML=
+    fmtStat(lineas.length,"Leídos")+fmtStat(lugares.length,"Únicos","#16a34a")+fmtStat(dups.length,"Duplicados","#dc2626");
+  document.getElementById("tabla-lugares").innerHTML=lugares.map(l=>`<tr><td style="color:#94a3b8">${l.id}</td><td>${l.nombre}</td></tr>`).join("");
+  document.getElementById("tabla-direcciones").innerHTML=dirs.map(d=>`<tr><td style="color:#94a3b8">${d.lugar_id}</td><td>${d.nombre_calle}</td><td>${d.numero_calle}</td><td>${d.ciudad_estado_provincia}</td><td>${d.pais}</td></tr>`).join("");
+  document.getElementById("tabla-georef").innerHTML=georef.map(g=>`<tr><td style="color:#94a3b8">${g.lugar_id}</td><td>${g.nombre}</td><td>${g.latitud??'—'}</td><td>${g.longitud??'—'}</td></tr>`).join("");
+
+  const jsonStr=JSON.stringify({timestamp:new Date().toISOString(),
+    stats:{leidos:lineas.length,unicos:lugares.length,duplicados:dups.length},
+    colecciones:{lugares,georeferencias:georef,direcciones:dirs}},null,2);
+  datosLugares={json:jsonStr};
+
+  document.getElementById("resultado-lugares").classList.remove("hidden");
+  document.getElementById("btn-dl-lugares").classList.remove("hidden");
+  btn.disabled=false; btn.textContent="Procesar";
+}
+
+function descargarLugares(){
+  if(!datosLugares) return;
+  blob(datosLugares.json,"lugares_normalizados.json","application/json");
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  NORMALIZADOR GENÉRICO
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+let genRaw=null, genHeaders=[], genColsActivas=new Set();
+
+function onSepChange(v){
+  document.getElementById("sep-custom").style.display = v==="custom"?"inline-block":"none";
+}
+
+function detectarSep(lineas) {
+  // Cuenta ocurrencias de cada candidato en las primeras 5 líneas
+  const candidatos=[";",",","\t","|"];
+  const muestra = lineas.slice(0,5).join("\n");
+  const conteos = candidatos.map(s=>({s, n:(muestra.split(s).length-1)}));
+  const mejor = conteos.sort((a,b)=>b.n-a.n)[0];
+  return mejor.n > 0 ? mejor.s : null;
+}
+
+function titleCase(str) {
+  // Capitaliza primera letra de cada palabra respetando tildes
+  return str.toLowerCase().replace(/(?:^|[\s\-])(\S)/g, c => c.toUpperCase());
+}
+
+async function previsualizarGen() {
+  const btn=document.getElementById("btn-previs");
+  btn.disabled=true; btn.innerHTML='<span class="spinner"></span>Leyendo…';
+  let texto;
+  try { texto=await leerArchivo("arch-gen"); }
+  catch(e) { alert(e); btn.disabled=false; btn.textContent="Vista previa"; return; }
+
+  const lineas=texto.split(/\r?\n/).map(l=>l.trimEnd()).filter(l=>l.trim());
+  if (!lineas.length) { alert("El archivo está vacío."); btn.disabled=false; btn.textContent="Vista previa"; return; }
+
+  // Determinar separador
+  let sepVal=document.getElementById("sep-sel").value;
+  let sep;
+  if (sepVal==="auto")  sep=detectarSep(lineas);
+  else if (sepVal==="one") sep=null;
+  else if (sepVal==="custom") sep=document.getElementById("sep-custom").value||null;
+  else sep=sepVal;
+
+  const tieneHeader=document.getElementById("header-sel").value==="1";
+
+  // Parsear
+  let headers, filas;
+  if (!sep) {
+    // Una sola columna
+    headers = tieneHeader ? [lineas[0].trim()] : ["valor"];
+    filas   = (tieneHeader ? lineas.slice(1) : lineas).map(l=>[l.trim()]);
+  } else {
+    headers = tieneHeader ? lineas[0].split(sep).map(h=>h.trim()) : Array.from({length:lineas[0].split(sep).length},(_,i)=>`col_${i+1}`);
+    filas   = (tieneHeader?lineas.slice(1):lineas).map(l=>l.split(sep).map(c=>c.trim()));
+  }
+
+  genRaw={headers,filas,sep,tieneHeader};
+  genHeaders=headers;
+  genColsActivas=new Set(headers);
+
+  // Pills
+  document.getElementById("col-pills").innerHTML=headers.map(h=>`
+    <span class="col-pill" id="pill-${CSS.escape(h)}" onclick="togglePill('${h.replace(/'/g,"\\'")}',this)">
+      ✓ ${h}
+    </span>`).join("");
+
+  document.getElementById("card-config-gen").classList.remove("hidden");
+  btn.disabled=false; btn.textContent="Vista previa";
+  document.getElementById("card-config-gen").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function togglePill(nombre, el) {
+  if (genColsActivas.has(nombre)) {
+    genColsActivas.delete(nombre); el.classList.add("off");
+    el.textContent="✗ "+nombre;
+  } else {
+    genColsActivas.add(nombre); el.classList.remove("off");
+    el.textContent="✓ "+nombre;
+  }
+}
+
+function normalizarGen() {
+  if (!genRaw) return;
+  const opDedup  = document.getElementById("op-dedup").checked;
+  const opFuzzy  = document.getElementById("op-fuzzy").checked;
+  const opTrim   = document.getElementById("op-trim").checked;
+  const opEmpty  = document.getElementById("op-empty").checked;
+  const opCtrl   = document.getElementById("op-ctrl").checked;
+  const opTitle  = document.getElementById("op-title").checked;
+  const opLower  = document.getElementById("op-lower").checked;
+  const opUpper  = document.getElementById("op-upper").checked;
+  const opFechas = document.getElementById("op-fechas").checked;
+  const opAddId  = document.getElementById("op-addid").checked;
+  const opSort   = document.getElementById("op-sort").checked;
+  const sepOut   = ";";
+
+  // Índices activos
+  const idxAct=genHeaders.map((h,i)=>genColsActivas.has(h)?i:-1).filter(i=>i>=0);
+  const headersOut=genHeaders.filter((_,i)=>idxAct.includes(i));
+  if (opAddId) headersOut.unshift("id");
+
+  const log=[], vistos=new Set(), visitosF=new Set();
+  let resultado=[], autoId=1;
+
+  for (let i=0;i<genRaw.filas.length;i++) {
+    const filaNum=i+1;
+    let celdas=idxAct.map(idx=>genRaw.filas[i][idx]??"");
+
+    // Ctrl chars
+    if (opCtrl) celdas=celdas.map(c=>c.replace(/[\x00-\x1f\x7f]/g,""));
+    // Trim
+    if (opTrim) celdas=celdas.map(c=>c.trim());
+    // Vacía
+    if (opEmpty&&celdas.every(c=>!c)) { log.push({fila:filaNum,accion:"Fila vacía eliminada"}); continue; }
+    // Case
+    const prevCase=[...celdas];
+    if (opTitle) celdas=celdas.map(titleCase);
+    if (opLower) celdas=celdas.map(c=>c.toLowerCase());
+    if (opUpper) celdas=celdas.map(c=>c.toUpperCase());
+    celdas.forEach((c,ci)=>{ if(c!==prevCase[ci]) log.push({fila:filaNum,accion:`'${prevCase[ci]}' → '${c}'`}); });
+    // Fechas
+    if (opFechas) {
+      celdas=celdas.map((c,ci)=>{
+        const p=parsearFecha(c);
+        if (!p) return c;
+        if (p.errorAnioNegativo) {
+          log.push({fila:filaNum,accion:`Fecha col '${headersOut[opAddId?ci+1:ci]}': año negativo no válido ('${c}')`});
+          return c + " ⚠ año negativo no válido";
+        }
+        const {anio,mes,dia,errorRango}=p;
+        const n=`${String(dia).padStart(2,"0")}-${String(mes).padStart(2,"0")}-${anio}`;
+        if (errorRango) {
+          log.push({fila:filaNum,accion:`Fecha col '${headersOut[opAddId?ci+1:ci]}': fecha fuera de rango ('${c}')`});
+          return n + " ⚠ fecha fuera de rango";
+        }
+        if (n!==c) log.push({fila:filaNum,accion:`Fecha col '${headersOut[opAddId?ci+1:ci]}': '${c}' → '${n}'`});
+        return n;
+      });
+    }
+    // Clave canónica para dedup fuzzy:
+    // quita tildes, colapsa espacios múltiples, pasa a minúsculas, elimina letras repetidas 3+ veces
+    function claveCanonica(str) {
+      return str
+        .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+        .toLowerCase()
+        .replace(/\s+/g," ").trim()
+        .replace(/([a-z])\1+/g,"$1");
+    }
+    // Dedup exacto
+    if (opDedup) {
+      const clave=celdas.join("||").toLowerCase();
+      if (vistos.has(clave)) { log.push({fila:filaNum,accion:`Duplicado exacto eliminado: '${celdas[0]}'`}); continue; }
+      vistos.add(clave);
+    }
+    // Dedup fuzzy (después del exacto para no duplicar logs)
+    if (opFuzzy) {
+      const canon=celdas.map(claveCanonica).join("||");
+      if (visitosF.has(canon)) { log.push({fila:filaNum,accion:`Variante duplicada eliminada: '${celdas[0]}'`}); continue; }
+      visitosF.add(canon);
+    }
+    if (opAddId) celdas.unshift(String(autoId++));
+    resultado.push(celdas);
+  }
+
+  // Ordenar
+  if (opSort) {
+    const startIdx=opAddId?1:0;
+    resultado.sort((a,b)=>a[startIdx].localeCompare(b[startIdx],"es",{sensitivity:"base"}));
+    // Re-numerar IDs si hay
+    if (opAddId) resultado.forEach((r,i)=>r[0]=String(i+1));
+  }
+
+  // Construir outputs
+  const csvLineas=[headersOut.join(sepOut), ...resultado.map(f=>f.join(sepOut))];
+  const csvStr=csvLineas.join("\r\n");
+  const txtStr=resultado.map(f=>f.join(" ")).join("\r\n");  // TXT: una fila por línea, valores con espacio
+  const objs=resultado.map(f=>Object.fromEntries(headersOut.map((h,i)=>[h,f[i]])));
+  const jsonStr=JSON.stringify({timestamp:new Date().toISOString(),
+    stats:{original:genRaw.filas.length,resultado:resultado.length,cambios:log.length},
+    registros:objs},null,2);
+
+  // Nombre base del archivo original
+  const archEl=document.getElementById("arch-gen");
+  const base=(archEl.files[0]?.name||"datos").replace(/\.[^.]+$/,"");
+  datosGenerico={
+    csv:csvStr, txt:txtStr, json:jsonStr,
+    nombreCSV:`${base}_normalizado.csv`,
+    nombreTXT:`${base}_normalizado.txt`,
+    nombreJSON:`${base}_normalizado.json`,
+  };
+
+  // Render stats
+  const dup=log.filter(l=>l.accion.includes("Duplicado")).length;
+  document.getElementById("stats-gen").innerHTML=
+    fmtStat(genRaw.filas.length,"Filas originales")+
+    fmtStat(resultado.length,"Filas resultado","#16a34a")+
+    fmtStat(dup,"Duplicados","#dc2626")+
+    fmtStat(log.length,"Cambios","#f59e0b");
+
+  // Tabla (preview 300)
+  document.getElementById("thead-gen").innerHTML="<tr>"+headersOut.map(h=>`<th>${h}</th>`).join("")+"</tr>";
+  const prev=resultado.slice(0,300);
+  document.getElementById("tbody-gen").innerHTML=prev.map(f=>"<tr>"+f.map(c=>`<td>${c}</td>`).join("")+"</tr>").join("")+
+    (resultado.length>300?`<tr><td colspan="${headersOut.length}" style="color:#94a3b8;text-align:center">… y ${resultado.length-300} filas más</td></tr>`:"");
+
+  // Log
+  document.getElementById("tbody-log-gen").innerHTML=
+    log.map(l=>`<tr><td style="color:#94a3b8">#${l.fila}</td><td>${l.accion}</td></tr>`).join("") ||
+    "<tr><td colspan='2' style='color:#94a3b8'>Sin cambios</td></tr>";
+
+  document.getElementById("resultado-gen").classList.remove("hidden");
+  document.getElementById("resultado-gen").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+
+function descargarGenCSV()  { if(datosGenerico) blob(datosGenerico.csv,  datosGenerico.nombreCSV,  "text/csv"); }
+function descargarGenTXT()  { if(datosGenerico) blob(datosGenerico.txt,  datosGenerico.nombreTXT,  "text/plain"); }
+function descargarGenJSON() { if(datosGenerico) blob(datosGenerico.json, datosGenerico.nombreJSON, "application/json"); }
+</script>
+
+</div><!-- /page-wrap -->
+
+<script>
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  TEMA CLARO / OSCURO
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+function toggleTema(){
+  document.body.classList.toggle('light');
+  localStorage.setItem('etl-tema', document.body.classList.contains('light') ? 'light' : 'dark');
+}
+if(localStorage.getItem('etl-tema')==='light') document.body.classList.add('light');
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  CANVAS CIELO NOCTURNO
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+(function(){
+  const cv = document.getElementById('sky-canvas');
+  const ctx = cv.getContext('2d');
+  let W, H, stars=[], raf;
+
+  function resize(){
+    W = cv.width  = window.innerWidth;
+    H = cv.height = Math.max(window.innerHeight, document.body.scrollHeight);
+  }
+  resize();
+  window.addEventListener('resize', ()=>{ resize(); buildStars(); });
+
+  function buildStars(){
+    stars = Array.from({length:260}, ()=>({
+      x: Math.random()*W,
+      y: Math.random()*H*0.72,
+      r: Math.random()*1.2+0.15,
+      a: Math.random(),
+      da: (Math.random()-.5)*.007
+    }));
+  }
+  buildStars();
+
+  const MR = 62;
+
+  function moonX(){ return W*0.82; }
+  function moonY(){ return 96; }
+
+  function drawMoon(){
+    const mx=moonX(), my=moonY();
+    // halo exterior
+    const halo=ctx.createRadialGradient(mx,my,MR*.7,mx,my,MR*2.6);
+    halo.addColorStop(0,'rgba(220,205,150,.11)');
+    halo.addColorStop(1,'rgba(220,205,150,0)');
+    ctx.beginPath(); ctx.arc(mx,my,MR*2.6,0,Math.PI*2);
+    ctx.fillStyle=halo; ctx.fill();
+
+    // disco lunar
+    const disc=ctx.createRadialGradient(mx-16,my-18,5,mx,my,MR);
+    disc.addColorStop(0,'#f6f0d8');
+    disc.addColorStop(0.55,'#ddd4a8');
+    disc.addColorStop(1,'rgba(180,165,105,0)');
+    ctx.beginPath(); ctx.arc(mx,my,MR,0,Math.PI*2);
+    ctx.fillStyle=disc; ctx.fill();
+
+    // cráteres
+    [{cx:-18,cy:12,r:8},{cx:16,cy:-20,r:6},{cx:7,cy:26,r:5},
+     {cx:-33,cy:-9,r:5},{cx:25,cy:9,r:4},{cx:-5,cy:-34,r:4}].forEach(c=>{
+      ctx.beginPath(); ctx.arc(mx+c.cx,my+c.cy,c.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(130,118,80,.2)'; ctx.fill();
+    });
+
+    // sombra fase (cuarto creciente)
+    ctx.save();
+    ctx.beginPath(); ctx.arc(mx,my,MR,0,Math.PI*2);
+    ctx.clip();
+    ctx.beginPath(); ctx.arc(mx+MR*.52,my,MR*.88,0,Math.PI*2);
+    ctx.fillStyle='rgba(8,12,20,.78)'; ctx.fill();
+    ctx.restore();
+  }
+
+  function drawNebulae(){
+    [{x:.18,y:.12,rx:130,ry:65,c:'rgba(38,52,140,.1)'  },
+     {x:.6, y:.2, rx:100,ry:52,c:'rgba(65,28,115,.08)' },
+     {x:.88,y:.4, rx:80, ry:42,c:'rgba(18,46,100,.09)' }
+    ].forEach(n=>{
+      const ng=ctx.createRadialGradient(W*n.x,H*n.y,0,W*n.x,H*n.y,n.rx);
+      ng.addColorStop(0,n.c); ng.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.beginPath(); ctx.ellipse(W*n.x,H*n.y,n.rx,n.ry,0,0,Math.PI*2);
+      ctx.fillStyle=ng; ctx.fill();
+    });
+  }
+
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+
+    // fondo degradado noche
+    const bg=ctx.createLinearGradient(0,0,0,H);
+    bg.addColorStop(0,'#03060d');
+    bg.addColorStop(.45,'#070b17');
+    bg.addColorStop(1,'#0b0f1e');
+    ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+
+    drawNebulae();
+    drawMoon();
+
+    // velo inferior
+    const fog=ctx.createLinearGradient(0,H*.52,0,H);
+    fog.addColorStop(0,'rgba(8,12,20,0)');
+    fog.addColorStop(1,'rgba(8,12,20,.9)');
+    ctx.fillStyle=fog; ctx.fillRect(0,H*.52,W,H*.48);
+
+    // estrellas
+    stars.forEach(s=>{
+      s.a+=s.da;
+      if(s.a<0||s.a>1) s.da*=-1;
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(215,228,255,${Math.max(0,Math.min(1,s.a))*.88+.06})`;
+      ctx.fill();
+    });
+
+    raf=requestAnimationFrame(frame);
+  }
+  frame();
+})();
+</script>
+</body>
+</html>
